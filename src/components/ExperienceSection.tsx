@@ -1,22 +1,20 @@
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Building2 } from "lucide-react";
+
+const experiences = [
+  {
+    company: "RDash",
+    tag: "YC W22",
+    role: "SDE",
+    duration: "Jun 2025 – Present",
+    description: [
+      "Engineering scalable frontend systems at RDash, owning complex workflows across document generation, template building, project management, and data-heavy applications.",
+      "Building production features with React, TypeScript, Redux, and RTK Query, from architecture and state management to API integration and performance.",
+      "Driving end-to-end feature ownership and solving complex UI, data, export, and production reliability challenges.",
+    ],
+  },
+];
 
 const ExperienceSection = () => {
-  const experience = {
-    company: "RDash (YC W22)",
-    role: "SDE Intern",
-    location: "Gurgaon, Haryana",
-    duration: "June 2025 – Present",
-    highlights: [
-      "Built responsive landing and download pages improving user onboarding",
-      "Developed real-time PDF generation and export system using Puppeteer",
-      "Created a full-scale Template Builder with live preview, JSON configuration, theming, and Jinja templating",
-      "Implemented advanced PDF export features (headers, footers, margins, orientation)",
-      "Built a smart Calendar module with recurrence rules and exception handling",
-      "Worked on maps and data visualization for analytics features",
-    ],
-  };
-
   return (
     <section id="experience" className="py-24 md:py-32 relative">
       <div className="container px-6">
@@ -25,66 +23,71 @@ const ExperienceSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
         >
-          {/* Section Title */}
-          <div className="flex items-center gap-4 mb-16">
-            <span className="text-muted-foreground font-mono text-sm">01.</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">Work Experience</h2>
-            <div className="h-px bg-border flex-1 max-w-xs" />
-          </div>
+          {/* Oversized section title */}
+          <h2 className="font-sans font-bold uppercase tracking-tighter leading-none text-foreground text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+            Experience
+          </h2>
 
-          {/* Experience Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="border border-border rounded-xl p-6 md:p-8 hover:border-foreground/30 transition-colors duration-300"
-          >
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-              <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
-                  {experience.role}{" "}
-                  <span className="border-b border-foreground">@ {experience.company}</span>
-                </h3>
-                <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" />
-                    {experience.location}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    {experience.duration}
-                  </span>
+          <div className="h-px bg-border mt-8 mb-16" />
+
+          {/* Tagline */}
+          <p className="font-bold text-3xl md:text-5xl leading-tight text-foreground max-w-2xl mb-16">
+            Shipped Features,
+            <br />
+            Not Just Tickets.
+          </p>
+
+          {/* Entries */}
+          <div className="divide-y divide-border">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 md:gap-12 py-12"
+              >
+                {/* Company logo */}
+                <div className="aspect-[4/3] md:aspect-auto border-2 border-border rounded-xl overflow-hidden group">
+                  <img
+                    src="/rdashLogo.png"
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
                 </div>
-              </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Building2 className="w-4 h-4" />
-                <span className="text-xs font-mono border border-border px-3 py-1 rounded-full">
-                  Y Combinator
-                </span>
-              </div>
-            </div>
 
-            {/* Highlights */}
-            <ul className="space-y-3">
-              {experience.highlights.map((highlight, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-3 text-muted-foreground"
-                >
-                  <span className="text-muted-foreground/60 mt-1.5">–</span>
-                  <span className="leading-relaxed">{highlight}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+                {/* Content */}
+                <div className="flex flex-col">
+                  <div className="flex items-start justify-between gap-4 mb-1">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                      {exp.company}
+                    </h3>
+                    <span className="text-sm font-mono text-muted-foreground whitespace-nowrap pt-1">
+                      {exp.duration}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-base md:text-lg text-muted-foreground">
+                      {exp.role}
+                    </span>
+                    <span className="text-xs font-mono border border-border px-2.5 py-0.5 rounded-full text-muted-foreground">
+                      {exp.tag}
+                    </span>
+                  </div>
+                  <ul className="space-y-2 max-w-xl">
+                    {exp.description.map((line, i) => (
+                      <li key={i} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
+                        <span className="text-muted-foreground/60 mt-1.5 shrink-0">–</span>
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

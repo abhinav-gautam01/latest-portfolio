@@ -6,6 +6,7 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -53,7 +54,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -63,16 +64,14 @@ const Navbar = () => {
                 }}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
               >
-                <span className="text-primary font-mono text-xs mr-1">
-                  0{index + 1}.
-                </span>
                 {link.name}
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/uc?export=download&id=1WxUsVstJil5rf3Kqwf9c0mtfQZCT7KCT"
               target="_blank"
               rel="noopener noreferrer"
+              download="Abhinav-Gautam-Resume.pdf"
               className="text-sm text-primary border border-primary px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors duration-300"
             >
               Resume
@@ -112,7 +111,7 @@ const Navbar = () => {
         />
         <div className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-card border-l border-border p-6 pt-24">
           <div className="flex flex-col gap-6">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -122,16 +121,14 @@ const Navbar = () => {
                 }}
                 className="text-lg text-foreground hover:text-primary transition-colors duration-300"
               >
-                <span className="text-primary font-mono text-sm mr-2">
-                  0{index + 1}.
-                </span>
                 {link.name}
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/uc?export=download&id=1WxUsVstJil5rf3Kqwf9c0mtfQZCT7KCT"
               target="_blank"
               rel="noopener noreferrer"
+              download="Abhinav-Gautam-Resume.pdf"
               className="text-lg text-primary border border-primary px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors duration-300 text-center mt-4"
             >
               Resume

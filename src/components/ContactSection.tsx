@@ -36,21 +36,27 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-24 md:py-32 relative border-t border-border bg-secondary/30">
       <div className="container px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
         >
-          {/* Section Title */}
-          <div className="flex items-center gap-4 mb-8">
-            <span className="text-primary font-mono text-sm">03.</span>
-            <h2 className="text-2xl md:text-3xl font-bold">Get In Touch</h2>
-            <div className="h-px bg-border flex-1 max-w-xs" />
-          </div>
+          {/* Oversized section title */}
+          <h2 className="font-sans font-bold uppercase tracking-tighter leading-none text-foreground text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+            Contact
+          </h2>
+
+          <div className="h-px bg-border mt-8 mb-16" />
+
+          {/* Tagline */}
+          <p className="font-bold text-3xl md:text-5xl leading-tight text-foreground max-w-2xl mb-16">
+            Got A Project?
+            <br />
+            Let&apos;s Talk.
+          </p>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left - Info */}
@@ -70,16 +76,16 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <a
                   href="mailto:abhinavgautam898@gmail.com"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                  className="flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 border border-border flex items-center justify-center shrink-0 group-hover:border-foreground/40 transition-colors duration-300">
+                    <Mail className="w-5 h-5 text-muted-foreground" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       Email
                     </p>
-                    <p className="text-foreground group-hover:text-primary transition-colors duration-300">
+                    <p className="text-foreground group-hover:border-b group-hover:border-foreground transition-colors duration-300">
                       abhinavgautam898@gmail.com
                     </p>
                   </div>
@@ -89,16 +95,16 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/abhinav-gautam-dev/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                  className="flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Linkedin className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 border border-border flex items-center justify-center shrink-0 group-hover:border-foreground/40 transition-colors duration-300">
+                    <Linkedin className="w-5 h-5 text-muted-foreground" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       LinkedIn
                     </p>
-                    <p className="text-foreground group-hover:text-primary transition-colors duration-300">
+                    <p className="text-foreground group-hover:border-b group-hover:border-foreground transition-colors duration-300">
                       abhinav-gautam-dev
                     </p>
                   </div>
@@ -108,16 +114,16 @@ const ContactSection = () => {
                   href="https://github.com/abhinav-gautam01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                  className="flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <Github className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 border border-border flex items-center justify-center shrink-0 group-hover:border-foreground/40 transition-colors duration-300">
+                    <Github className="w-5 h-5 text-muted-foreground" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                       GitHub
                     </p>
-                    <p className="text-foreground group-hover:text-primary transition-colors duration-300">
+                    <p className="text-foreground group-hover:border-b group-hover:border-foreground transition-colors duration-300">
                       abhinav-gautam01
                     </p>
                   </div>
@@ -168,7 +174,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-medium glow-sm"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-medium rounded-full"
                 >
                   {isSubmitting ? (
                     "Sending..."
