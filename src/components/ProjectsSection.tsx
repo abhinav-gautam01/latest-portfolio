@@ -9,6 +9,7 @@ interface Project {
   techStack: string[];
   github: string;
   live?: string;
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -35,29 +36,40 @@ const projects: Project[] = [
       "Responsive multi-section restaurant website with a focus on UI/UX and smooth interactivity.",
     techStack: ["HTML", "Tailwind CSS", "JavaScript"],
     github: "https://github.com/abhinav-gautam01/Burger-Bliss",
+    image: "/burgerBliss.png",
   },
 ];
 
 const filters = ["All", "Web", "Full-Stack"] as const;
 type Filter = (typeof filters)[number];
 
-const ProjectPreview = ({ name }: { name: string }) => (
-  <div className="w-full h-full overflow-hidden">
+const ProjectPreview = ({ name, image }: { name: string; image?: string }) => (
+  <div className="w-full h-full overflow-hidden border border-border rounded-xl">
     <motion.div
       whileHover={{ scale: 1.04 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="w-full h-full border border-border bg-secondary/40 flex flex-col"
+      className="w-full h-full bg-secondary/40 flex flex-col"
     >
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border shrink-0">
-        <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
-        <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
-        <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
-      </div>
-      <div className="flex-1 flex items-center justify-center">
-        <span className="font-serif text-2xl md:text-4xl text-muted-foreground/40 tracking-wide text-center px-4">
-          {name}
-        </span>
-      </div>
+      {image ? (
+        <img
+          src={image}
+          alt={`${name} preview`}
+          className="w-full h-full object-cover object-top"
+        />
+      ) : (
+        <>
+          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border shrink-0">
+            <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+            <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+            <span className="w-2 h-2 rounded-full bg-muted-foreground/30" />
+          </div>
+          <div className="flex-1 flex items-center justify-center">
+            <span className="font-serif text-2xl md:text-4xl text-muted-foreground/40 tracking-wide text-center px-4">
+              {name}
+            </span>
+          </div>
+        </>
+      )}
     </motion.div>
   </div>
 );
@@ -152,7 +164,7 @@ const ProjectsSection = () => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="aspect-video md:aspect-[21/9] relative"
                 >
-                  <ProjectPreview name={featured.name} />
+                  <ProjectPreview name={featured.name} image={featured.image} />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 flex items-end justify-between bg-gradient-to-t from-background/95 to-transparent">
                     <div>
                       <h3 className="text-2xl md:text-3xl font-bold text-foreground">
@@ -188,7 +200,7 @@ const ProjectsSection = () => {
                   transition={{ duration: 0.3, delay: index * 0.08 }}
                 >
                   <div className="aspect-video mb-4">
-                    <ProjectPreview name={project.name} />
+                    <ProjectPreview name={project.name} image={project.image} />
                   </div>
                   <div className="flex items-start justify-between gap-3 mb-1">
                     <h3 className="text-lg font-bold text-foreground">{project.name}</h3>
