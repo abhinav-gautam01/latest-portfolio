@@ -29,8 +29,8 @@ const ExperienceSection = () => {
         >
           {/* Section Title */}
           <div className="flex items-center gap-4 mb-16">
-            <span className="text-primary font-mono text-sm">01.</span>
-            <h2 className="text-2xl md:text-3xl font-bold">Work Experience</h2>
+            <span className="text-muted-foreground font-mono text-sm">01.</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground">Work Experience</h2>
             <div className="h-px bg-border flex-1 max-w-xs" />
           </div>
 
@@ -40,14 +40,14 @@ const ExperienceSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass rounded-2xl p-6 md:p-8 glass-hover"
+            className="border border-border rounded-xl p-6 md:p-8 hover:border-foreground/30 transition-colors duration-300"
           >
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
                   {experience.role}{" "}
-                  <span className="text-primary">@ {experience.company}</span>
+                  <span className="border-b border-foreground">@ {experience.company}</span>
                 </h3>
                 <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                   <span className="flex items-center gap-2">
@@ -60,9 +60,9 @@ const ExperienceSection = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-primary">
-                <Building2 className="w-5 h-5" />
-                <span className="text-xs font-mono bg-primary/10 px-3 py-1 rounded-full">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Building2 className="w-4 h-4" />
+                <span className="text-xs font-mono border border-border px-3 py-1 rounded-full">
                   Y Combinator
                 </span>
               </div>
@@ -79,7 +79,7 @@ const ExperienceSection = () => {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="flex items-start gap-3 text-muted-foreground"
                 >
-                  <span className="text-primary mt-1.5">▹</span>
+                  <span className="text-muted-foreground/60 mt-1.5">–</span>
                   <span className="leading-relaxed">{highlight}</span>
                 </motion.li>
               ))}

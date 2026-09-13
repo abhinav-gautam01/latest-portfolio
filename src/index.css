@@ -1,69 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 95%;
+    --background: 0 0% 96%;
+    --foreground: 0 0% 7%;
 
-    --card: 220 20% 7%;
-    --card-foreground: 210 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
-    --popover: 220 20% 7%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 96%;
 
-    --secondary: 220 20% 12%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 0 0% 91%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 0 0% 91%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 260 80% 65%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 0 0% 88%;
+    --accent-foreground: 0 0% 7%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 199 89% 48%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 7%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens */
-    --gradient-start: 199 89% 48%;
-    --gradient-end: 260 80% 65%;
-    --glow: 199 89% 48%;
-    --surface: 220 20% 8%;
-    --surface-hover: 220 20% 12%;
+    --gradient-start: 0 0% 7%;
+    --gradient-end: 0 0% 40%;
+    --glow: 0 0% 7%;
+    --surface: 0 0% 100%;
+    --surface-hover: 0 0% 91%;
   }
 
   .dark {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 95%;
-    --card: 220 20% 7%;
-    --card-foreground: 210 20% 95%;
-    --popover: 220 20% 7%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 220 20% 4%;
-    --secondary: 220 20% 12%;
-    --secondary-foreground: 210 20% 95%;
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 55%;
-    --accent: 260 80% 65%;
-    --accent-foreground: 210 20% 98%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 62%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 199 89% 48%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 96%;
   }
 }
 
@@ -78,7 +78,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
   ::selection {
@@ -88,16 +88,20 @@
 }
 
 @layer utilities {
+  .font-serif-display {
+    font-family: 'DM Serif Display', serif;
+  }
+
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground;
   }
 
   .glow {
-    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.25);
   }
 
   .glow-sm {
-    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.2);
   }
 
   .glass {
