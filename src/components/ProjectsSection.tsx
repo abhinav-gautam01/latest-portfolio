@@ -7,12 +7,45 @@ interface Project {
   category: "Web" | "Full-Stack";
   description: string;
   techStack: string[];
-  github: string;
+  github?: string;
   live?: string;
   image?: string;
 }
 
 const projects: Project[] = [
+  {
+    name: "InvestiGator",
+    category: "Web",
+    description:
+      "AI-powered investigation intelligence landing page — relationship mapping, multi-source data ingestion, and real-time collaboration tools for investigators and analysts.",
+    techStack: ["React", "Tailwind CSS"],
+    image: "/Investigator.webp",
+  },
+  {
+    name: "Analytics Dashboard",
+    category: "Web",
+    description:
+      "Admin dashboard UI with earnings, revenue, and task-tracking widgets — weekly revenue bar charts, a spend trendline, a pie chart breakdown, and data tables for projects and tasks.",
+    techStack: ["React", "Tailwind CSS"],
+    image: "/dashboard.png",
+  },
+  {
+    name: "BurgerBliss",
+    category: "Web",
+    description:
+      "Responsive multi-section restaurant website with a focus on UI/UX and smooth interactivity.",
+    techStack: ["HTML", "Tailwind CSS", "JavaScript"],
+    github: "https://github.com/abhinav-gautam01/Burger-Bliss",
+    image: "/burgerBliss.png",
+  },
+  {
+    name: "Unidine",
+    category: "Web",
+    description:
+      "Playful restaurant ordering landing page with a signature-dishes showcase, customer testimonials, and an editorial, illustration-driven design.",
+    techStack: ["React", "Tailwind CSS"],
+    image: "/unidine.webp",
+  },
   {
     name: "Medium Clone",
     category: "Full-Stack",
@@ -30,15 +63,6 @@ const projects: Project[] = [
     techStack: ["React", "Tailwind CSS", "Express", "MongoDB"],
     github: "https://github.com/abhinav-gautam01/Simplpay",
     image: "/SimplPay.png",
-  },
-  {
-    name: "BurgerBliss",
-    category: "Web",
-    description:
-      "Responsive multi-section restaurant website with a focus on UI/UX and smooth interactivity.",
-    techStack: ["HTML", "Tailwind CSS", "JavaScript"],
-    github: "https://github.com/abhinav-gautam01/Burger-Bliss",
-    image: "/burgerBliss.png",
   },
 ];
 
@@ -78,16 +102,18 @@ const ProjectPreview = ({ name, image }: { name: string; image?: string }) => (
 
 const ProjectLinks = ({ project }: { project: Project }) => (
   <div className="flex items-center gap-3">
-    <a
-      href={project.github}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`GitHub repository for ${project.name}`}
-      onClick={(e) => e.stopPropagation()}
-      className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-    >
-      <Github className="w-4 h-4" />
-    </a>
+    {project.github && (
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`GitHub repository for ${project.name}`}
+        onClick={(e) => e.stopPropagation()}
+        className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+      >
+        <Github className="w-4 h-4" />
+      </a>
+    )}
     {project.live && (
       <a
         href={project.live}
