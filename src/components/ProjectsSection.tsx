@@ -20,6 +20,7 @@ const projects: Project[] = [
       "Full-featured blog platform with authentication, profile creation, and content posting.",
     techStack: ["React", "TypeScript", "Hono", "PostgreSQL", "Prisma", "Tailwind CSS"],
     github: "https://github.com/abhinav-gautam01/medium",
+    image: "/medium.png",
   },
   {
     name: "SimplPay",
@@ -28,6 +29,7 @@ const projects: Project[] = [
       "Peer-to-peer payment app with JWT-based authentication and secure transactions.",
     techStack: ["React", "Tailwind CSS", "Express", "MongoDB"],
     github: "https://github.com/abhinav-gautam01/Simplpay",
+    image: "/SimplPay.png",
   },
   {
     name: "BurgerBliss",
